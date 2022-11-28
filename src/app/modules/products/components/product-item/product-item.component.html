@@ -1,0 +1,15 @@
+    <div class="card" style="width: 18rem;">
+      <img routerLink="/products/{{data.id}}" src="{{data.image}}" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5 class="card-title">{{data.title}}</h5>
+        <p class="card-text">{{data.description}}</p>
+      </div>
+      <div class="card-body d-flex justify-content-between">
+        <button class="card-link btn btn-sm btn-primary" *ngIf="!addButton" (click)="addButton = true">Add to Cart</button>
+        <div class="d-flex gap-2 w-50" *ngIf="addButton">
+            <input type="number" value="1" [(ngModel)]="amount" class="form-control">
+            <button (click)="add()" class="btn btn-sm btn-primary">Add</button>
+        </div>
+        <span>{{data.price}} EGP</span>
+      </div>
+    </div>
